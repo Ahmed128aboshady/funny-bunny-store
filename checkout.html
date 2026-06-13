@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Securely complete your apparel order with Funny Bunny checkout simulation. Supports cash on delivery and simulated cards.">
+    <title>Funny Bunny | Secure Checkout</title>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Logo.png" alt="Funny Bunny Logo" id="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Secure Checkout</h2>
+
+        <div id="checkout-empty-warning" style="display:none; text-align:center; padding: 80px 20px;">
+            <i class="fa-solid fa-cart-arrow-down" style="font-size:4rem; color:var(--text-muted); margin-bottom:20px;"></i>
+            <h2>Your Cart is Currently Empty</h2>
+            <p style="color:var(--text-muted); margin-bottom:30px;">Add items to your cart before proceeding to checkout.</p>
+            <a href="shop.html" class="btn btn-primary">Browse Shop</a>
+        </div>
+
+        <div class="checkout-layout" id="checkout-active-layout">
+            <!-- Left Side: Shipping & Payment Details -->
+            <form id="checkout-form" onsubmit="handlePlaceOrder(event)">
+                <!-- Shipping Section -->
+                <div class="checkout-section-panel">
+                    <h3 class="checkout-title"><i class="fa-solid fa-truck" style="margin-right:10px;"></i> Shipping Information</h3>
+                    <div class="checkout-grid">
+                        <div class="form-group">
+                            <label for="ship-name">Full Name</label>
+                            <input type="text" id="ship-name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="ship-email">Email Address</label>
+                            <input type="email" id="ship-email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group span-2">
+                            <label for="ship-address">Street Address</label>
+                            <input type="text" id="ship-address" required placeholder="123 Luxury Ave, Suite 4">
+                        </div>
+                        <div class="form-group">
+                            <label for="ship-city">City</label>
+                            <input type="text" id="ship-city" required placeholder="Cairo">
+                        </div>
+                        <div class="form-group">
+                            <label for="ship-phone">Phone Number</label>
+                            <input type="tel" id="ship-phone" required placeholder="+20 123 456 789">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="checkout-section-panel">
+                    <h3 class="checkout-title"><i class="fa-solid fa-credit-card" style="margin-right:10px;"></i> Payment Details</h3>
+                    <div class="payment-options">
+                        <div class="payment-option active" id="pay-opt-card">
+                            <input type="radio" name="payment-method" value="card" checked id="method-card">
+                            <div class="payment-option-info">
+                                <span class="payment-option-title">Credit Card / Debit Card</span>
+                                <span class="payment-option-desc">Simulated card visualizer input below</span>
+                            </div>
+                        </div>
+                        <div class="payment-option" id="pay-opt-cod">
+                            <input type="radio" name="payment-method" value="cod" id="method-cod">
+                            <div class="payment-option-info">
+                                <span class="payment-option-title">Cash on Delivery (COD)</span>
+                                <span class="payment-option-desc">Pay upon receiving the shipping package</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credit Card Visualizer Input Fields -->
+                    <div id="card-fields-wrapper">
+                        <!-- Card Mockup Visualizer -->
+                        <div class="card-wrapper">
+                            <div class="credit-card-mockup" id="card-mockup">
+                                <!-- Front -->
+                                <div class="card-front">
+                                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                                        <div class="card-chip"></div>
+                                        <div class="card-brand">BUNNY</div>
+                                    </div>
+                                    <div class="card-number-display" id="mock-num">•••• •••• •••• ••••</div>
+                                    <div class="card-meta-row">
+                                        <div>
+                                            <div class="card-label">CARD HOLDER</div>
+                                            <div class="card-holder-display" id="mock-holder">JOHN DOE</div>
+                                        </div>
+                                        <div>
+                                            <div class="card-label">EXPIRES</div>
+                                            <div class="card-expiry-display" id="mock-expiry">MM/YY</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Back -->
+                                <div class="card-back">
+                                    <div class="card-strip"></div>
+                                    <div class="card-signature-cvv">
+                                        <div class="card-label" style="margin-right:20px;">CVV</div>
+                                        <div class="card-cvv-display" id="mock-cvv">•••</div>
+                                    </div>
+                                    <div style="font-size:0.5rem; text-align:center; color:#555;">FUNNY BUNNY ACCESS ONLY</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Fields Grid -->
+                        <div class="checkout-grid">
+                            <div class="form-group span-2">
+                                <label for="card-num-input">Card Number</label>
+                                <input type="text" id="card-num-input" maxlength="19" placeholder="1234 5678 1234 5678">
+                            </div>
+                            <div class="form-group span-2">
+                                <label for="card-holder-input">Cardholder Name</label>
+                                <input type="text" id="card-holder-input" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-expiry-input">Expiration Date</label>
+                                <input type="text" id="card-expiry-input" maxlength="5" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv-input">CVV</label>
+                                <input type="text" id="card-cvv-input" maxlength="4" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="display:block; width:100%; padding:18px; font-size:1.1rem; margin-top:30px;">Place Secure Order</button>
+            </form>
+
+            <!-- Right Side: Order Summary Panel -->
+            <div class="cart-summary" style="position:sticky; top:100px;">
+                <h3 class="summary-title" style="margin-bottom:15px;">Your Order</h3>
+                <div style="max-height:200px; overflow-y:auto; margin-bottom:20px; padding-right:5px;" id="checkout-items-list">
+                    <!-- Injected items list -->
+                </div>
+
+                <div style="border-top:1px solid var(--border-color); padding-top:15px;">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="chk-subtotal">0 EGP</span>
+                    </div>
+                    <div class="summary-row" id="chk-discount-row" style="display:none; color:#2ecc71;">
+                        <span>Discount</span>
+                        <span id="chk-discount">-0 EGP</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="chk-shipping">150 EGP</span>
+                    </div>
+                    <div class="summary-row total" style="margin-top:15px; padding-top:15px; border-top:1px solid var(--border-color);">
+                        <span>Order Total</span>
+                        <span id="chk-total">0 EGP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/Logo.png" alt="Funny Bunny Logo">
+                    </a>
+                    <p class="footer-desc">Premium clothing manufactured with the finest materials. Serving both retail shoppers and wholesale clothing distributions worldwide.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop Nav</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Full Catalog</a></li>
+                        <li><a href="shop.html?category=men">Men Clothing</a></li>
+                        <li><a href="shop.html?category=women">Women Clothing</a></li>
+                        <li><a href="shop.html?category=kids">Kids Clothing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Help & Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Size Guides</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Headquarters</h4>
+                    <ul class="footer-links">
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Cairo, Egypt</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> +20 123 456 789</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> wholesale@funnybunny.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Funny Bunny Apparel Co. All rights reserved.</p>
+                <div class="admin-portal-trigger" id="admin-portal-btn">
+                    <i class="fa-solid fa-lock"></i> Staff Portal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Store Script -->
+    <script src="store.js"></script>
+
+    <!-- Page Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chkLayout = document.getElementById('checkout-active-layout');
+            const chkEmpty = document.getElementById('checkout-empty-warning');
+
+            const itemsList = document.getElementById('checkout-items-list');
+            const chkSubtotalVal = document.getElementById('chk-subtotal');
+            const chkShippingVal = document.getElementById('chk-shipping');
+            const chkDiscountVal = document.getElementById('chk-discount');
+            const chkDiscountRow = document.getElementById('chk-discount-row');
+            const chkTotalVal = document.getElementById('chk-total');
+
+            // Interactive Card Display Elements
+            const cardMockup = document.getElementById('card-mockup');
+            const mockNum = document.getElementById('mock-num');
+            const mockHolder = document.getElementById('mock-holder');
+            const mockExpiry = document.getElementById('mock-expiry');
+            const mockCvv = document.getElementById('mock-cvv');
+
+            // Interactive Card Input Fields
+            const cardNumInput = document.getElementById('card-num-input');
+            const cardHolderInput = document.getElementById('card-holder-input');
+            const cardExpiryInput = document.getElementById('card-expiry-input');
+            const cardCvvInput = document.getElementById('card-cvv-input');
+
+            // Payment toggles
+            const optCard = document.getElementById('pay-opt-card');
+            const optCod = document.getElementById('pay-opt-cod');
+            const rdoCard = document.getElementById('method-card');
+            const rdoCod = document.getElementById('method-cod');
+            const cardFields = document.getElementById('card-fields-wrapper');
+
+            // Render Cart list
+            function loadCheckoutDetails() {
+                const cart = getCart();
+                if (cart.length === 0) {
+                    chkLayout.style.display = 'none';
+                    chkEmpty.style.display = 'block';
+                    return;
+                }
+
+                chkLayout.style.display = 'grid';
+                chkEmpty.style.display = 'none';
+
+                itemsList.innerHTML = '';
+                cart.forEach(item => {
+                    const line = document.createElement('div');
+                    line.style.cssText = 'display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.85rem;';
+                    line.innerHTML = `
+                        <span style="color:var(--text-muted);">${item.quantity}x ${item.title} (${item.size})</span>
+                        <span style="font-weight:600;">${(item.price * item.quantity).toLocaleString('en-US')} EGP</span>
+                    `;
+                    itemsList.appendChild(line);
+                });
+
+                // Compute prices
+                const subtotal = getCartSubtotal();
+                chkSubtotalVal.textContent = `${subtotal.toLocaleString('en-US')} EGP`;
+
+                const discount = 0; // standard checkout state
+                
+                const shipping = subtotal >= 3000 ? 0 : 150;
+                chkShippingVal.textContent = shipping === 0 ? "Free" : `${shipping.toLocaleString('en-US')} EGP`;
+
+                const total = subtotal - discount + shipping;
+                chkTotalVal.textContent = `${total.toLocaleString('en-US')} EGP`;
+            }
+
+            // Payment toggle events
+            optCard.addEventListener('click', () => {
+                rdoCard.checked = true;
+                optCard.classList.add('active');
+                optCod.classList.remove('active');
+                cardFields.style.display = 'block';
+                cardNumInput.required = true;
+                cardHolderInput.required = true;
+                cardExpiryInput.required = true;
+                cardCvvInput.required = true;
+            });
+
+            optCod.addEventListener('click', () => {
+                rdoCod.checked = true;
+                optCod.classList.add('active');
+                optCard.classList.remove('active');
+                cardFields.style.display = 'none';
+                cardNumInput.required = false;
+                cardHolderInput.required = false;
+                cardExpiryInput.required = false;
+                cardCvvInput.required = false;
+            });
+
+            // Card Mockup inputs synchronization
+            cardNumInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                let formatted = '';
+                for (let i = 0; i < val.length; i++) {
+                    if (i > 0 && i % 4 === 0) formatted += ' ';
+                    formatted += val[i];
+                }
+                e.target.value = formatted;
+                mockNum.textContent = formatted || '•••• •••• •••• ••••';
+            });
+
+            cardHolderInput.addEventListener('input', (e) => {
+                mockHolder.textContent = e.target.value.toUpperCase() || 'JOHN DOE';
+            });
+
+            cardExpiryInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                if (val.length >= 2) {
+                    e.target.value = val.slice(0, 2) + '/' + val.slice(2, 4);
+                }
+                mockExpiry.textContent = e.target.value || 'MM/YY';
+            });
+
+            // Flip on CVV focus
+            cardCvvInput.addEventListener('focus', () => {
+                cardMockup.classList.add('flipped');
+            });
+
+            cardCvvInput.addEventListener('blur', () => {
+                cardMockup.classList.remove('flipped');
+            });
+
+            cardCvvInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                mockCvv.textContent = val || '•••';
+            });
+
+            // Initial config
+            cardNumInput.required = true;
+            cardHolderInput.required = true;
+            cardExpiryInput.required = true;
+            cardCvvInput.required = true;
+
+            loadCheckoutDetails();
+        });
+
+        // Submit checkout
+        function handlePlaceOrder(e) {
+            e.preventDefault();
+            const customerName = document.getElementById('ship-name').value;
+            const customerEmail = document.getElementById('ship-email').value;
+            
+            const orderDetails = {
+                name: customerName,
+                email: customerEmail,
+                orderNo: 'FB-' + Math.floor(100000 + Math.random() * 900000),
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            };
+            
+            localStorage.setItem('fb_last_order', JSON.stringify(orderDetails));
+            window.location.href = 'success.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop the complete Funny Bunny Apparel collection. Filter by season, category, price, and discover custom high-quality clothing.">
+    <title>Funny Bunny | Clothing Catalog</title>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Logo.png" alt="Funny Bunny Logo" id="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="shop-layout">
+            <!-- Sidebar Filters -->
+            <aside class="shop-sidebar">
+                <div class="filter-group">
+                    <h3 class="filter-title">Categories</h3>
+                    <ul class="filter-list">
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-category" value="men"> Men</label>
+                        </li>
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-category" value="women"> Women</label>
+                        </li>
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-category" value="kids"> Kids</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">Seasons</h3>
+                    <ul class="filter-list">
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-season" value="spring"> Spring Collection</label>
+                        </li>
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-season" value="summer"> Summer Collection</label>
+                        </li>
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-season" value="autumn"> Autumn Collection</label>
+                        </li>
+                        <li class="filter-item">
+                            <label><input type="checkbox" class="filter-season" value="winter"> Winter Collection</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">Max Price</h3>
+                    <div class="price-range">
+                        <input type="range" id="price-slider" min="0" max="5000" step="250" value="5000">
+                        <div class="price-labels">
+                            <span>0 EGP</span>
+                            <span id="price-value" class="text-gold" style="font-weight: 700;">5,000 EGP</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Catalog Section -->
+            <div class="shop-main">
+                <div class="shop-toolbar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                        <input type="text" id="search-input" placeholder="Search catalog...">
+                    </div>
+                    <div class="sort-box">
+                        <select id="sort-select">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Customer Rating</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="shop-products-grid">
+                    <!-- Products will be dynamically generated by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/Logo.png" alt="Funny Bunny Logo">
+                    </a>
+                    <p class="footer-desc">Premium clothing manufactured with the finest materials. Serving both retail shoppers and wholesale clothing distributions worldwide.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop Nav</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Full Catalog</a></li>
+                        <li><a href="shop.html?category=men">Men Clothing</a></li>
+                        <li><a href="shop.html?category=women">Women Clothing</a></li>
+                        <li><a href="shop.html?category=kids">Kids Clothing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Help & Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Size Guides</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Headquarters</h4>
+                    <ul class="footer-links">
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Cairo, Egypt</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> +20 123 456 789</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> wholesale@funnybunny.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Funny Bunny Apparel Co. All rights reserved.</p>
+                <div class="admin-portal-trigger" id="admin-portal-btn">
+                    <i class="fa-solid fa-lock"></i> Staff Portal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Store Script -->
+    <script src="store.js"></script>
+
+    <!-- Local Page Handling Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productsContainer = document.getElementById('shop-products-grid');
+            const searchInput = document.getElementById('search-input');
+            const priceSlider = document.getElementById('price-slider');
+            const priceValueDisplay = document.getElementById('price-value');
+            const sortSelect = document.getElementById('sort-select');
+
+            // Parse URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const initialCategory = params.get('category');
+            const initialSeason = params.get('season');
+
+            if (initialCategory) {
+                document.querySelectorAll('.filter-category').forEach(cb => {
+                    if (cb.value === initialCategory) cb.checked = true;
+                });
+            }
+            if (initialSeason) {
+                document.querySelectorAll('.filter-season').forEach(cb => {
+                    if (cb.value === initialSeason) cb.checked = true;
+                });
+            }
+
+            // Sync Slider Display
+            priceSlider.addEventListener('input', (e) => {
+                priceValueDisplay.textContent = `${parseInt(e.target.value).toLocaleString('en-US')} EGP`;
+                renderProducts();
+            });
+
+            // Bind Event Listeners
+            searchInput.addEventListener('input', renderProducts);
+            sortSelect.addEventListener('change', renderProducts);
+            document.querySelectorAll('.filter-category, .filter-season').forEach(cb => {
+                cb.addEventListener('change', renderProducts);
+            });
+
+            // Main Render Function
+            function renderProducts() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                const maxPrice = parseFloat(priceSlider.value);
+                const selectedSort = sortSelect.value;
+
+                const selectedCategories = [];
+                document.querySelectorAll('.filter-category:checked').forEach(cb => {
+                    selectedCategories.push(cb.value);
+                });
+
+                const selectedSeasons = [];
+                document.querySelectorAll('.filter-season:checked').forEach(cb => {
+                    selectedSeasons.push(cb.value);
+                });
+
+                // Filter items
+                let filtered = PRODUCTS_DATABASE.filter(p => {
+                    if (selectedCategories.length > 0 && !selectedCategories.includes(p.category)) {
+                        return false;
+                    }
+                    if (selectedSeasons.length > 0 && !selectedSeasons.includes(p.season)) {
+                        return false;
+                    }
+                    if (p.price > maxPrice) {
+                        return false;
+                    }
+                    if (searchQuery) {
+                        const inTitle = p.title.toLowerCase().includes(searchQuery);
+                        const inDesc = p.description.toLowerCase().includes(searchQuery);
+                        if (!inTitle && !inDesc) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+
+                // Sort items
+                if (selectedSort === 'price-asc') {
+                    filtered.sort((a, b) => a.price - b.price);
+                } else if (selectedSort === 'price-desc') {
+                    filtered.sort((a, b) => b.price - a.price);
+                } else if (selectedSort === 'rating-desc') {
+                    filtered.sort((a, b) => b.rating - a.rating);
+                }
+
+                // Render DOM
+                productsContainer.innerHTML = '';
+                if (filtered.length === 0) {
+                    productsContainer.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+                            <i class="fa-solid fa-magnifying-glass-minus" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 15px;"></i>
+                            <h3 style="font-family: var(--font-primary); font-size:1.4rem;">No Products Found</h3>
+                            <p style="color: var(--text-muted); margin-top:5px;">Try adjusting your filters or search query.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                filtered.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <div class="product-card-img">
+                            ${p.badge ? `<span class="product-card-badge">${p.badge}</span>` : ''}
+                            <img src="${p.image}" alt="${p.title}">
+                            <div class="product-card-actions">
+                                <button class="product-card-btn btn-primary" onclick="addToCart('${p.id}', 1, '${p.sizes[0] || 'M'}', 'Default')">Add to Cart</button>
+                                <a href="${p.id}.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-info">
+                            <span class="product-category">${p.category} • ${p.season}</span>
+                            <h3 class="product-title">${p.title}</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    ${p.originalPrice ? `<span class="product-original-price">${p.originalPrice.toLocaleString('en-US')} EGP</span>` : ''}
+                                    <span class="product-price">${p.price.toLocaleString('en-US')} EGP</span>
+                                </div>
+                                <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> ${p.rating}</span>
+                            </div>
+                        </div>
+                    `;
+                    productsContainer.appendChild(card);
+                });
+            }
+
+            // Initial render
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

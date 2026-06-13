@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Funny Bunny Apparel - Premium quality B2B & B2C apparel and designer fabrics. Explore our luxury seasonal collections.">
+    <title>Funny Bunny Apparel | Premium Clothing Store</title>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Logo.png" alt="Funny Bunny Logo" id="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="assets/Untitled Design (1).webm" type="video/webm">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle" data-edit-key="hero-subtitle" data-aos="fade-up">Premium Fashion & Textiles</p>
+            <h1 class="hero-title" data-edit-key="hero-title" data-aos="fade-up" data-aos-delay="150">Elevate Your Style with Funny Bunny</h1>
+            <p class="hero-desc" data-edit-key="hero-desc" data-aos="fade-up" data-aos-delay="300">Discover top-tier apparel designed for premium comfort. From seasonal collections to bespoke designer fabrics, we offer unparalleled craftsmanship for retailers and direct shoppers alike.</p>
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="450">
+                <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                <a href="shop.html?category=women" class="btn btn-outline">Explore Women</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Category Section -->
+    <section class="container" style="padding: 80px 0 40px;">
+        <h2 class="section-title" data-aos="fade-up">Shop by Category</h2>
+        <div class="categories-grid tilt-card-container">
+            <!-- Men Category -->
+            <div class="tilt-card" onclick="window.location.href='shop.html?category=men'" data-aos="fade-right">
+                <img src="assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp" alt="Men Clothing">
+                <div class="tilt-card-overlay">
+                    <h3>Men</h3>
+                    <p>Classic tailoring & rugged outdoor essentials</p>
+                    <span class="text-gold" style="font-weight: 600;">Browse Men &rarr;</span>
+                </div>
+            </div>
+            <!-- Women Category -->
+            <div class="tilt-card" onclick="window.location.href='shop.html?category=women'" data-aos="fade-up" data-aos-delay="150">
+                <img src="assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp" alt="Women Clothing">
+                <div class="tilt-card-overlay">
+                    <h3>Women</h3>
+                    <p>Chic seasonal designs & knitwear</p>
+                    <span class="text-gold" style="font-weight: 600;">Browse Women &rarr;</span>
+                </div>
+            </div>
+            <!-- Kids Category -->
+            <div class="tilt-card" onclick="window.location.href='shop.html?category=kids'" data-aos="fade-left" data-aos-delay="300">
+                <img src="assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp" alt="Kids Clothing">
+                <div class="tilt-card-overlay">
+                    <h3>Kids</h3>
+                    <p>Soft stretch cotton wardrobe bundles</p>
+                    <span class="text-gold" style="font-weight: 600;">Browse Kids &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">New Arrivals</h2>
+            
+            <div class="swiper-container-outer" data-aos="fade-up" data-aos-delay="150">
+                <div class="swiper swiper-products">
+                    <div class="swiper-wrapper">
+                        <!-- Product Card 1 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">Hot</span>
+                                    <img src="assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Retro Bloom Floral Top">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('floral-top', 1, 'M', 'Default')">Add to Cart</button>
+                                        <a href="floral-top.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Women • Summer</span>
+                                    <h3 class="product-title">Retro Bloom Floral Top</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">1,950 EGP</span>
+                                            <span class="product-price">1,450 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">New</span>
+                                    <img src="assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp" alt="Urban Cozy Knit Sweater">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('knit-sweater', 1, 'M', 'Default')">Add to Cart</button>
+                                        <a href="knit-sweater.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Women • Autumn</span>
+                                    <h3 class="product-title">Urban Cozy Knit Sweater</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">2,950 EGP</span>
+                                            <span class="product-price">2,250 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">Sale</span>
+                                    <img src="assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp" alt="Fleece Winter Trail Jacket">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('winter-jacket', 1, 'L', 'Default')">Add to Cart</button>
+                                        <a href="winter-jacket.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Men • Winter</span>
+                                    <h3 class="product-title">Fleece Winter Trail Jacket</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">4,950 EGP</span>
+                                            <span class="product-price">3,950 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">Limited</span>
+                                    <img src="assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp" alt="Spring Meadow Pastel Set">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('pastel-set', 1, 'M', 'Default')">Add to Cart</button>
+                                        <a href="pastel-set.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Women • Spring</span>
+                                    <h3 class="product-title">Spring Meadow Pastel Set</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">3,250 EGP</span>
+                                            <span class="product-price">2,650 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.6</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">Trending</span>
+                                    <img src="assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp" alt="Classic Family Denim Shirt">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('family-denim', 1, 'M', 'Default')">Add to Cart</button>
+                                        <a href="family-denim.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Men • Spring</span>
+                                    <h3 class="product-title">Classic Family Denim Shirt</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">2,250 EGP</span>
+                                            <span class="product-price">1,750 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <span class="product-card-badge">Popular</span>
+                                    <img src="assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp" alt="Junior Wardrobe Essentials Set">
+                                    <div class="product-card-actions">
+                                        <button class="product-card-btn btn-primary" onclick="addToCart('kids-essentials', 1, 'M', 'Default')">Add to Cart</button>
+                                        <a href="kids-essentials.html" class="product-card-btn btn-outline" style="background:rgba(0,0,0,0.8); border-color:transparent;">View Info</a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-category">Kids • Autumn</span>
+                                    <h3 class="product-title">Junior Wardrobe Essentials Set</h3>
+                                    <div class="product-price-row">
+                                        <div>
+                                            <span class="product-original-price">2,450 EGP</span>
+                                            <span class="product-price">1,950 EGP</span>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color:#ffa500;"><i class="fa-solid fa-star"></i> 4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;" data-aos="fade-up">
+                <a href="shop.html" class="btn btn-outline">View All Catalog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Seasonal Collections Section -->
+    <section class="container" style="padding: 80px 0 40px;">
+        <h2 class="section-title" data-aos="fade-up">Seasonal Collections</h2>
+        <div class="seasonal-accordion-container" data-aos="fade-up" data-aos-delay="150">
+            <!-- Spring Panel -->
+            <div class="accordion-panel" onclick="window.location.href='shop.html?season=spring'">
+                <img src="assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp" alt="Spring Collection">
+                <div class="accordion-panel-overlay">
+                    <h3>Spring</h3>
+                    <div class="accordion-panel-content">
+                        <p>Meadow pastels, lightweight silk coordinates, and fresh floral patterns designed to celebrate the season of rebirth.</p>
+                        <span class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.8rem;">Explore Spring &rarr;</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Summer Panel -->
+            <div class="accordion-panel" onclick="window.location.href='shop.html?season=summer'">
+                <img src="assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Summer Collection">
+                <div class="accordion-panel-overlay">
+                    <h3>Summer</h3>
+                    <div class="accordion-panel-content">
+                        <p>Vibrant resort wear, high-breathability organic cotton, and elegant swimwear options to keep you cool and stylish under the sun.</p>
+                        <span class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.8rem;">Explore Summer &rarr;</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Autumn Panel -->
+            <div class="accordion-panel" onclick="window.location.href='shop.html?season=autumn'">
+                <img src="assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp" alt="Autumn Collection">
+                <div class="accordion-panel-overlay">
+                    <h3>Autumn</h3>
+                    <div class="accordion-panel-content">
+                        <p>Warm layering knitwear, corduroy textures, and deep harvest tones perfect for breezy days and cozy evenings.</p>
+                        <span class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.8rem;">Explore Autumn &rarr;</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Winter Panel -->
+            <div class="accordion-panel" onclick="window.location.href='shop.html?season=winter'">
+                <img src="assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp" alt="Winter Collection">
+                <div class="accordion-panel-overlay">
+                    <h3>Winter</h3>
+                    <div class="accordion-panel-content">
+                        <p>Heavy duty outdoor fleece layers, insulated windproof parkas, and cashmere wool essentials for maximum thermal comfort.</p>
+                        <span class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.8rem;">Explore Winter &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Fabrics & Fabrication Section -->
+    <section class="fabric-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Designer Fabrics & Fabrication</h2>
+            
+            <div class="fabric-workspace-container" data-aos="fade-up" data-aos-delay="150">
+                <!-- Tabs List (Left) -->
+                <div class="fabric-tabs-list">
+                    <button class="fabric-tab-btn active" onclick="switchFabric('cotton')">
+                        <h4>Egyptian Cotton</h4>
+                        <p>100% organic long-staple textile</p>
+                    </button>
+                    <button class="fabric-tab-btn" onclick="switchFabric('silk')">
+                        <h4>Mulberry Silk</h4>
+                        <p>Grade-A raw silk fibers and weave</p>
+                    </button>
+                    <button class="fabric-tab-btn" onclick="switchFabric('wool')">
+                        <h4>Pure Merino Wool</h4>
+                        <p>Super-fine soft-spun thermal wool</p>
+                    </button>
+                </div>
+                <!-- Detail Pane (Right) -->
+                <div class="fabric-pane" id="fabric-pane-container">
+                    <div class="fabric-pane-content">
+                        <h3 id="fabric-title">Egyptian Cotton</h3>
+                        <p id="fabric-desc">Sourced directly from the Nile Delta, our premium long-staple Egyptian cotton is recognized worldwide for its incredible durability, natural luster, and ultra-soft breathability. Ideal for everyday high-end shirting.</p>
+                        <div class="fabric-metrics">
+                            <div class="metric-row">
+                                <div class="metric-label">
+                                    <span>Softness</span>
+                                    <span id="metric-softness-val">90%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="metric-softness-bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <div class="metric-label">
+                                    <span>Durability</span>
+                                    <span id="metric-durability-val">95%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="metric-durability-bar" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <div class="metric-label">
+                                    <span>Breathability</span>
+                                    <span id="metric-breathability-val">98%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="metric-breathability-bar" style="width: 98%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="shop.html" class="btn btn-primary">Inquire Wholesale</a>
+                    </div>
+                    <div class="fabric-pane-img">
+                        <img id="fabric-img" src="assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Egyptian Cotton Bolts">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Style Lookbook / Gallery Section (Upgraded to Marquee) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Funny Bunny Lookbook</h2>
+            
+            <div class="lookbook-marquee-wrapper" data-aos="fade-up" data-aos-delay="150">
+                <div class="lookbook-marquee-inner">
+                    <!-- Original set of 6 items -->
+                    <div class="marquee-item" onclick="openLightbox('assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp', 'Spring Pastels - Lightweight luxury blends')">
+                        <img src="assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp" alt="Spring look">
+                        <div class="marquee-overlay">
+                            <h4>Spring Meadow</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp', 'Retro Bloom - High-grade cotton patterns')">
+                        <img src="assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Summer look">
+                        <div class="marquee-overlay">
+                            <h4>Retro Bloom</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp', 'Urban Cozy - Hand-knitted autumn textures')">
+                        <img src="assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp" alt="Autumn look">
+                        <div class="marquee-overlay">
+                            <h4>Urban Cozy</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp', 'Winter Trail - Windproof active insulation layers')">
+                        <img src="assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp" alt="Winter look">
+                        <div class="marquee-overlay">
+                            <h4>Winter Trail</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp', 'Classic Family - Mid-wash organic denim shirts')">
+                        <img src="assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp" alt="Family look">
+                        <div class="marquee-overlay">
+                            <h4>Classic Denim</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp', 'Junior Essentials - Stretch cotton kids sets')">
+                        <img src="assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp" alt="Kids look">
+                        <div class="marquee-overlay">
+                            <h4>Junior Essentials</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicate set of 6 items for infinite seamless scroll -->
+                    <div class="marquee-item" onclick="openLightbox('assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp', 'Spring Pastels - Lightweight luxury blends')">
+                        <img src="assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp" alt="Spring look">
+                        <div class="marquee-overlay">
+                            <h4>Spring Meadow</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp', 'Retro Bloom - High-grade cotton patterns')">
+                        <img src="assets/floral-top-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Summer look">
+                        <div class="marquee-overlay">
+                            <h4>Retro Bloom</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp', 'Urban Cozy - Hand-knitted autumn textures')">
+                        <img src="assets/stylish-outfit-with-sweater-purse-and-pink-jeans-2026-03-16-02-35-19-utc.webp" alt="Autumn look">
+                        <div class="marquee-overlay">
+                            <h4>Urban Cozy</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp', 'Winter Trail - Windproof active insulation layers')">
+                        <img src="assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp" alt="Winter look">
+                        <div class="marquee-overlay">
+                            <h4>Winter Trail</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp', 'Classic Family - Mid-wash organic denim shirts')">
+                        <img src="assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp" alt="Family look">
+                        <div class="marquee-overlay">
+                            <h4>Classic Denim</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                    <div class="marquee-item" onclick="openLightbox('assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp', 'Junior Essentials - Stretch cotton kids sets')">
+                        <img src="assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp" alt="Kids look">
+                        <div class="marquee-overlay">
+                            <h4>Junior Essentials</h4>
+                            <p>Click to zoom view</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal container -->
+            <div class="lightbox-modal" id="lightbox-modal">
+                <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                <div class="lightbox-content">
+                    <img class="lightbox-image" id="lightbox-img" src="" alt="Zoom preview">
+                    <div class="lightbox-caption" id="lightbox-caption"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Testimonials & Social Proof Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Wholesale & Retail Trust</h2>
+            
+            <div class="swiper swiper-testimonials" data-aos="fade-up" data-aos-delay="150">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The Egyptian Cotton shirts are incredible! The B2B ordering process was super simple, and delivery to Alexandria was very fast. Highly recommended manufacturing partner."</p>
+                            <div class="testimonial-client">
+                                <div class="client-avatar">SM</div>
+                                <div class="client-details">
+                                    <h4>Sarah Mahmoud</h4>
+                                    <p>Boutique Owner, Alexandria</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Outstanding build quality on the knitwear. We integrated their wholesale fabric rolls into our local production and the response from customers has been amazing."</p>
+                            <div class="testimonial-client">
+                                <div class="client-avatar">OK</div>
+                                <div class="client-details">
+                                    <h4>Omar Khalifa</h4>
+                                    <p>Retail Sourcing Manager, Cairo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"I bought the fleece jacket and cozy knit sweater. Absolute luxury feel at a great price. Muted colors look even better in person. Customizer mode is a very cool feature!"</p>
+                            <div class="testimonial-client">
+                                <div class="client-avatar">YN</div>
+                                <div class="client-details">
+                                    <h4>Yasmin Nader</h4>
+                                    <p>Verified Buyer, Giza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Location & Contact Section -->
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Find Our Showroom</h2>
+            <div class="location-grid">
+                <!-- Location Details -->
+                <div class="location-info" data-aos="fade-right">
+                    <h3>Headquarters & Showroom</h3>
+                    <ul class="location-info-list">
+                        <li class="location-info-item">
+                            <div class="location-info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="location-info-text">
+                                <h4>Showroom Address</h4>
+                                <p>Building 42, Textile District, Fifth Settlement, New Cairo, Egypt</p>
+                            </div>
+                        </li>
+                        <li class="location-info-item">
+                            <div class="location-info-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="location-info-text">
+                                <h4>Operating Hours</h4>
+                                <p>Sunday - Thursday: 10:00 AM - 9:00 PM<br>Friday - Saturday: 1:00 PM - 10:00 PM</p>
+                            </div>
+                        </li>
+                        <li class="location-info-item">
+                            <div class="location-info-icon"><i class="fa-solid fa-industry"></i></div>
+                            <div class="location-info-text">
+                                <h4>B2B Wholesale Inquiries</h4>
+                                <p>Our apparel manufacturing lines are open for custom designs. Book a physical showroom appointment to view fabrics.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-primary"><i class="fa-solid fa-location-arrow" style="margin-right: 8px;"></i> Open Google Maps</a>
+                    </div>
+                </div>
+                
+                <!-- Interactive Showroom hotspots graphic -->
+                <div class="showroom-hotspot-container" data-aos="fade-left" data-aos-delay="150">
+                    <img src="assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp" alt="Showroom View" class="showroom-img">
+                    
+                    <!-- Hotspot 1 -->
+                    <div class="hotspot-dot" style="top: 30%; left: 40%;">
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="hotspot-tooltip">
+                            <h4>Custom Tailoring Rack</h4>
+                            <p>Browse our seasonal tailored samples for men and children, handcrafted from 100% Egyptian cotton.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotspot 2 -->
+                    <div class="hotspot-dot" style="top: 55%; left: 72%;">
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="hotspot-tooltip">
+                            <h4>B2B Sourcing Desk</h4>
+                            <p>Our team sits here with wholesale clients to view fabric swatches, custom sizes, and arrange manufacturing runs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotspot 3 -->
+                    <div class="hotspot-dot" style="top: 45%; left: 18%;">
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="hotspot-tooltip">
+                            <h4>Material Quality Station</h4>
+                            <p>Where incoming fabric bolts are inspected for weave consistency and dye accuracy under specialized neutral lighting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/Logo.png" alt="Funny Bunny Logo">
+                    </a>
+                    <p class="footer-desc">Premium clothing manufactured with the finest materials. Serving both retail shoppers and wholesale clothing distributions worldwide.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop Nav</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Full Catalog</a></li>
+                        <li><a href="shop.html?category=men">Men Clothing</a></li>
+                        <li><a href="shop.html?category=women">Women Clothing</a></li>
+                        <li><a href="shop.html?category=kids">Kids Clothing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Help & Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Size Guides</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Headquarters</h4>
+                    <ul class="footer-links">
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Cairo, Egypt</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> +20 123 456 789</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> wholesale@funnybunny.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Funny Bunny Apparel Co. All rights reserved.</p>
+                <div class="admin-portal-trigger" id="admin-portal-btn">
+                    <i class="fa-solid fa-lock"></i> Staff Portal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Shared Store Script -->
+    <script src="store.js"></script>
+    
+    <!-- Homepage Custom Interactive Features -->
+    <script src="index-animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Purchase Fleece Winter Trail Jacket by Funny Bunny. Premium organic summer cotton, specs, care, B2B wholesale pricing scale.">
+    <title>Funny Bunny | Fleece Winter Trail Jacket</title>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Logo.png" alt="Funny Bunny Logo" id="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Breadcrumbs -->
+        <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 20px; padding-top: 100px;">
+            <a href="shop.html">Shop</a> &gt; <a href="shop.html?category=men">Men</a> &gt; Winter Collection &gt; Fleece Winter Trail Jacket
+        </div>
+
+        <!-- 3-Column Amazon Layout -->
+        <div class="amazon-layout">
+            <!-- Column 1: Image Gallery & Video Player -->
+            <div class="amazon-gallery-panel">
+                <div class="amazon-thumbs-list">
+                    <div class="amazon-thumb active" onclick="switchMedia('image', 'assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp', this)">
+                        <img src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Thumb 1">
+                    </div>
+                    <div class="amazon-thumb" onclick="switchMedia('image', 'assets/Logo.png', this)">
+                        <img src="assets/Logo.png" alt="Thumb 2">
+                    </div>
+                    <!-- WebM Video Thumb -->
+                    <div class="amazon-thumb" onclick="switchMedia('video', 'assets/Untitled Design (3).webm', this)" style="position:relative; display:flex; align-items:center; justify-content:center; background:#111;">
+                        <i class="fa-solid fa-circle-play" style="font-size:1.5rem; color:var(--primary); position:absolute; z-index:3;"></i>
+                        <img src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Video Thumb" style="opacity:0.4;">
+                    </div>
+                </div>
+                <div class="amazon-main-display" id="main-media-display">
+                    <img id="main-image-el" src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Fleece Winter Trail Jacket">
+                </div>
+            </div>
+
+            <!-- Column 2: Product Information -->
+            <div class="amazon-info-panel">
+                <div>
+                    <a href="shop.html" class="amazon-brand-link">Funny Bunny Apparel</a>
+                    <h1 class="amazon-title">Fleece Winter Trail Jacket</h1>
+                </div>
+
+                <div class="amazon-rating-row">
+                    <div class="amazon-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="amazon-rating-count">4.7 out of 5 stars (156 ratings)</span>
+                </div>
+
+                <div class="amazon-price-row">
+                    <span class="amazon-savings">Save 20% (Save 1,000 EGP)</span>
+                    <div class="amazon-price-large">
+                        3,950 <span>EGP</span>
+                    </div>
+                    <div class="amazon-original-price-row">
+                        List Price: <span>4,950 EGP</span>
+                    </div>
+                </div>
+
+                <!-- Product Selectors -->
+                <div class="amazon-option-section">
+                    <div>
+                        <span class="amazon-option-label" style="display:block; margin-bottom:8px;">Select Size</span>
+                        <div class="size-chips">
+                            <div class="size-chip active" onclick="selectSize('S', this)">S</div>
+                            <div class="size-chip" onclick="selectSize('M', this)">M</div>
+                            <div class="size-chip" onclick="selectSize('L', this)">L</div>
+                            <div class="size-chip" onclick="selectSize('XL', this)">XL</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="amazon-option-label" style="display:block; margin-bottom:8px;">Select Color Blend</span>
+                        <div class="color-swatches">
+                            <div class="color-swatch active" style="background-color:#2f4f4f;" onclick="selectColor('#2f4f4f', this, 'assets/winter-clothes-and-accessories-for-outdoor-adventu-2026-03-27-01-49-26-utc.webp')"></div>
+                            <div class="color-swatch" style="background-color:#000080;" onclick="selectColor('#000080', this, 'assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp')"></div>
+                            <div class="color-swatch" style="background-color:#000000;" onclick="selectColor('#000000', this, 'assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp')"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2B Pricing Table -->
+                <div style="background:rgba(212,175,55,0.03); border:1px dashed var(--primary); border-radius:6px; padding:15px; margin-top:10px;">
+                    <span class="amazon-option-label" style="color:var(--primary); font-weight:700;"><i class="fa-solid fa-building-flag" style="margin-right:8px;"></i> B2B Wholesale Pricing Scale</span>
+                    <table style="width:100%; font-size:0.85rem; border-collapse:collapse; margin-top:10px; text-align:left;">
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted);">
+                                <th style="padding-bottom:5px;">Order Quantity</th>
+                                <th style="padding-bottom:5px;">Price per Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:5px 0;">1 - 9 units</td>
+                                <td style="padding:5px 0; font-weight:600;">3,950 EGP</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px 0;">10 - 49 units</td>
+                                <td style="padding:5px 0; font-weight:600; color:var(--primary);">3,550 EGP</td>
+                            </tr>
+                            <tr style="border-top:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:5px 0; font-weight:700;">50+ units (Bulk Bolt)</td>
+                                <td style="padding:5px 0; font-weight:700; color:#2ecc71;">3,150 EGP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Bullet Points -->
+                <div class="amazon-about-section">
+                    <h3 class="amazon-about-title">About this item</h3>
+                    <ul class="amazon-bullet-list">
+                        <li><strong>100% Organic Egyptian Cotton</strong>: Sourced directly from local Giza farms to ensure long-staple durability.</li>
+                        <li><strong>Vibrant Floral Weave</strong>: Printed using non-toxic certified eco-friendly dyes that resist fading on repeated washing.</li>
+                        <li><strong>Relaxed Comfort Fit</strong>: Light weight fabric structure optimized for hot summer season climates.</li>
+                        <li><strong>Factory Authenticity</strong>: Stitched in-house by Funny Bunny Apparel Factory with double-reinforced borders.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 3: Amazon Buy Box -->
+            <div class="amazon-buy-box">
+                <div class="price">3,950 EGP</div>
+                <div class="amazon-shipping-info">
+                    <span>FREE Delivery</span> on orders over 3,000 EGP. Details.
+                    <br>Arrives: <span>Tuesday, June 16</span>
+                </div>
+                <div class="amazon-stock-status">In Stock</div>
+                
+                <!-- Qty Dropdown -->
+                <div class="form-group">
+                    <label class="amazon-option-label" for="qty-select">Qty:</label>
+                    <select id="qty-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="10">10 (Wholesale)</option>
+                        <option value="50">50 (Bulk Bolt)</option>
+                    </select>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+                    <button class="btn amazon-btn-add" onclick="handleAddToCart()">Add to Cart</button>
+                    <button class="btn amazon-btn-buy" onclick="handleBuyNow()">Buy Now</button>
+                </div>
+
+                <div class="amazon-merchant-row" style="margin-top:10px;">
+                    <span>Ships from:</span>
+                    <span>Funny Bunny Factory</span>
+                </div>
+                <div class="amazon-merchant-row">
+                    <span>Sold by:</span>
+                    <span>Funny Bunny Retail HQ</span>
+                </div>
+
+                <div style="border-top:1px solid var(--border-color); padding-top:15px; margin-top:10px; font-size:0.8rem; color:var(--text-muted); text-align:center;">
+                    <i class="fa-solid fa-lock" style="margin-right:5px; color:#2ecc71;"></i> Secure Transaction
+                </div>
+            </div>
+        </div>
+
+        <!-- Bundle: Frequently Bought Together (Floral Top + Cozy Sweater) -->
+        <div class="amazon-bundle-section">
+            <h3 class="amazon-bundle-title">Frequently bought together</h3>
+            <div class="amazon-bundle-flex">
+                <div class="amazon-bundle-item">
+                    <img src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Item 1">
+                    <div class="amazon-bundle-item-title">Fleece Winter Trail Jacket</div>
+                    <div class="amazon-bundle-item-price">3,950 EGP</div>
+                </div>
+                <div class="amazon-bundle-plus">+</div>
+                <div class="amazon-bundle-item">
+                    <img src="assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp" alt="Item 2">
+                    <div class="amazon-bundle-item-title">Classic Family Denim Shirt</div>
+                    <div class="amazon-bundle-item-price">1,750 EGP</div>
+                </div>
+                <div class="amazon-bundle-buybox">
+                    <p>Total Price: <span class="text-gold" style="font-weight:700; font-size:1.15rem;" id="bundle-total-price">5,700 EGP</span></p>
+                    <button class="btn amazon-btn-add" style="font-size:0.85rem; padding:10px 20px;" onclick="addBundleToCart()">Add both to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications & Customer Reviews Breakdown -->
+        <div class="amazon-reviews-layout">
+            <!-- Left: Reviews Histogram -->
+            <div class="amazon-rating-histogram">
+                <h3 class="amazon-about-title" style="margin-bottom:5px;">Customer Reviews</h3>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                    <div class="amazon-stars" style="font-size:1.2rem;">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span style="font-weight:600; font-size:1.1rem;">4.8 out of 5</span>
+                </div>
+
+                <div class="amazon-histogram-row">
+                    <span>5 star</span>
+                    <div class="amazon-bar-bg"><div class="amazon-bar-fill" style="width: 82%;"></div></div>
+                    <span>82%</span>
+                </div>
+                <div class="amazon-histogram-row">
+                    <span>4 star</span>
+                    <div class="amazon-bar-bg"><div class="amazon-bar-fill" style="width: 12%;"></div></div>
+                    <span>12%</span>
+                </div>
+                <div class="amazon-histogram-row">
+                    <span>3 star</span>
+                    <div class="amazon-bar-bg"><div class="amazon-bar-fill" style="width: 4%;"></div></div>
+                    <span>4%</span>
+                </div>
+                <div class="amazon-histogram-row">
+                    <span>2 star</span>
+                    <div class="amazon-bar-bg"><div class="amazon-bar-fill" style="width: 1%;"></div></div>
+                    <span>1%</span>
+                </div>
+                <div class="amazon-histogram-row">
+                    <span>1 star</span>
+                    <div class="amazon-bar-bg"><div class="amazon-bar-fill" style="width: 1%;"></div></div>
+                    <span>1%</span>
+                </div>
+            </div>
+
+            <!-- Right: Written Reviews -->
+            <div>
+                <h3 class="amazon-about-title" style="margin-bottom:20px;">Top Reviews from Egypt</h3>
+                <div style="margin-bottom:25px;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                        <div class="client-avatar" style="width:30px; height:30px; font-size:0.75rem;">SM</div>
+                        <span style="font-weight:600; font-size:0.9rem;">Sarah Mahmoud</span>
+                    </div>
+                    <div class="amazon-stars" style="font-size:0.8rem; margin-bottom:5px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span style="color:var(--text-main); font-weight:600; margin-left:10px; font-size:0.85rem;">Perfect B2B Apparel Quality</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">"Purchased 50 bolts for our showroom. Excellent organic linen feel, dye matches the hex colors exactly. 100% recommended!"</p>
+                </div>
+                <div style="margin-bottom:25px;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                        <div class="client-avatar" style="width:30px; height:30px; font-size:0.75rem;">YN</div>
+                        <span style="font-weight:600; font-size:0.9rem;">Yasmin Nader</span>
+                    </div>
+                    <div class="amazon-stars" style="font-size:0.8rem; margin-bottom:5px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span style="color:var(--text-main); font-weight:600; margin-left:10px; font-size:0.85rem;">Very Light Summer wear</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">"Highly breathable material, great for Cairo's dry summer weather. The sizing runs slightly large, so keep that in mind."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/Logo.png" alt="Funny Bunny Logo">
+                    </a>
+                    <p class="footer-desc">Premium clothing manufactured with the finest materials. Serving both retail shoppers and wholesale clothing distributions worldwide.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Shop Nav</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Full Catalog</a></li>
+                        <li><a href="shop.html?category=men">Men Clothing</a></li>
+                        <li><a href="shop.html?category=men">Men Clothing</a></li>
+                        <li><a href="shop.html?category=kids">Kids Clothing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Help & Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Size Guides</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Headquarters</h4>
+                    <ul class="footer-links">
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Cairo, Egypt</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> +20 123 456 789</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> wholesale@funnybunny.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Funny Bunny Apparel Co. All rights reserved.</p>
+                <div class="admin-portal-trigger" id="admin-portal-btn">
+                    <i class="fa-solid fa-lock"></i> Staff Portal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Store Script -->
+    <script src="store.js"></script>
+
+    <!-- Page Script -->
+    <script>
+        let selectedSize = 'S';
+        let selectedColor = '#ffffff';
+
+        function switchMedia(type, path, element) {
+            document.querySelectorAll('.amazon-thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+
+            const container = document.getElementById('main-media-display');
+            if (type === 'video') {
+                container.innerHTML = `
+                    <video autoplay muted loop playsinline controls style="width:100%; height:100%; object-fit:cover;">
+                        <source src="${path}" type="video/webm">
+                    </video>
+                `;
+            } else {
+                container.innerHTML = `
+                    <img id="main-image-el" src="${path}" alt="Fleece Winter Trail Jacket">
+                `;
+            }
+        }
+
+        function selectSize(size, el) {
+            document.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            selectedSize = size;
+        }
+
+        function selectColor(color, el, imgPath) {
+            document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+            el.classList.add('active');
+            selectedColor = color;
+
+            if (imgPath) {
+                const imgEl = document.getElementById('main-image-el');
+                if (imgEl) {
+                    imgEl.style.opacity = '0.3';
+                    imgEl.style.transition = 'opacity 0.2s ease';
+                    setTimeout(() => {
+                        imgEl.src = imgPath;
+                        imgEl.style.opacity = '1';
+                    }, 200);
+                }
+            }
+        }
+
+        function handleAddToCart() {
+            const qty = parseInt(document.getElementById('qty-select').value) || 1;
+            addToCart('winter-jacket', qty, selectedSize, selectedColor);
+        }
+
+        function handleBuyNow() {
+            const qty = parseInt(document.getElementById('qty-select').value) || 1;
+            addToCart('winter-jacket', qty, selectedSize, selectedColor);
+            window.location.href = 'checkout.html';
+        }
+
+        function addBundleToCart() {
+            // Add floral top
+            addToCart('winter-jacket', 1, selectedSize, selectedColor);
+            // Add cozy knit sweater
+            addToCart('family-denim', 1, 'M', 'Default');
+            window.location.href = 'cart.html';
+        }
+    </script>
+</body>
+</html>
