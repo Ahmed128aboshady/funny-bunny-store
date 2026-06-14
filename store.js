@@ -270,6 +270,8 @@ function applyCustomizations() {
                         videoEl.load();
                     }
                 }
+            } else if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                el.placeholder = customs[key];
             } else {
                 el.textContent = customs[key];
             }
@@ -290,20 +292,157 @@ function initAdminPortal() {
                 <h3>Store Customizer</h3>
                 <span class="modal-close" onclick="toggleCustomizerSidebar()">&times;</span>
             </div>
+            <div class="customizer-tabs">
+                <button class="cust-tab-btn active" onclick="switchCustTab('active-page')">Active Page</button>
+                <button class="cust-tab-btn" onclick="switchCustTab('home-page')">Home</button>
+                <button class="cust-tab-btn" onclick="switchCustTab('shop-page')">Store</button>
+                <button class="cust-tab-btn" onclick="switchCustTab('product-page')">Products</button>
+            </div>
             <div class="customizer-scrollable">
-                <p style="font-size: 0.85rem; color: var(--text-muted);">
-                    Modify page text or image URLs live. Click any element marked with a border on the page, or use the controls below.
-                </p>
-                <div class="form-group">
-                    <label>Selected Element Key</label>
-                    <input type="text" id="cust-elem-key" readonly placeholder="Click an element to edit">
+                <!-- Active Page Tab -->
+                <div id="tab-active-page" class="cust-tab-content active">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                        Modify page text or image URLs live. Click any element marked with a border on the page, or use the controls below.
+                    </p>
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>Selected Element Key</label>
+                        <input type="text" id="cust-elem-key" readonly placeholder="Click an element to edit">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Value (Text Content or Image URL)</label>
+                        <textarea id="cust-elem-val" rows="4" placeholder="Enter new text or image file path..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="applySelectedCustomization()">Apply Change</button>
                 </div>
-                <div class="form-group">
-                    <label>Value (Text Content or Image URL)</label>
-                    <textarea id="cust-elem-val" rows="4" placeholder="Enter new text or image file path..."></textarea>
+
+                <!-- Home Page Tab -->
+                <div id="tab-home-page" class="cust-tab-content">
+                    <h4 style="color:var(--primary); margin-bottom: 10px;">Hero Section</h4>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Hero Subtitle</label>
+                        <input type="text" id="home-hero-subtitle-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Hero Title</label>
+                        <input type="text" id="home-hero-title-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Hero Description</label>
+                        <textarea id="home-hero-desc-input" rows="3"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Hero Video Background URL</label>
+                        <input type="text" id="home-hero-bg-input">
+                    </div>
+                    
+                    <h4 style="color:var(--primary); margin-bottom: 10px; border-top:1px solid var(--border-color); padding-top:10px;">Categories</h4>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Men Category Title</label>
+                        <input type="text" id="home-men-title-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Men Category Desc</label>
+                        <input type="text" id="home-men-desc-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Men Category Image URL</label>
+                        <input type="text" id="home-men-img-input">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Women Category Title</label>
+                        <input type="text" id="home-women-title-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Women Category Desc</label>
+                        <input type="text" id="home-women-desc-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Women Category Image URL</label>
+                        <input type="text" id="home-women-img-input">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Kids Category Title</label>
+                        <input type="text" id="home-kids-title-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Kids Category Desc</label>
+                        <input type="text" id="home-kids-desc-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Kids Category Image URL</label>
+                        <input type="text" id="home-kids-img-input">
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width:100%; margin-top: 10px;" onclick="applyHomeCustomizations()">Save Home Page</button>
                 </div>
-                <button class="btn btn-primary" onclick="applySelectedCustomization()">Apply Change</button>
-                <div style="border-top: 1px solid var(--border-color); margin: 15px 0;"></div>
+
+                <!-- Store Page Tab -->
+                <div id="tab-shop-page" class="cust-tab-content">
+                    <h4 style="color:var(--primary); margin-bottom: 10px;">Catalog Settings</h4>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Search Placeholder</label>
+                        <input type="text" id="shop-search-placeholder-input">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="applyShopCustomizations()">Save Store Page</button>
+                </div>
+
+                <!-- Product Page Tab -->
+                <div id="tab-product-page" class="cust-tab-content">
+                    <h4 style="color:var(--primary); margin-bottom: 10px;">Edit Product Details</h4>
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>Select Product</label>
+                        <select id="cust-product-select" onchange="loadProductCustFields()">
+                            <option value="floral-top">Retro Bloom Floral Top</option>
+                            <option value="knit-sweater">Urban Cozy Knit Sweater</option>
+                            <option value="winter-jacket">Fleece Winter Trail Jacket</option>
+                            <option value="pastel-set">Spring Meadow Pastel Set</option>
+                            <option value="family-denim">Classic Family Denim Shirt</option>
+                            <option value="kids-essentials">Junior Wardrobe Essentials Set</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Product Title</label>
+                        <input type="text" id="prod-title-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Product Price (EGP)</label>
+                        <input type="text" id="prod-price-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Original List Price (EGP)</label>
+                        <input type="text" id="prod-original-price-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Product Image URL</label>
+                        <input type="text" id="prod-img-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Product Brand Name</label>
+                        <input type="text" id="prod-brand-input">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Bullet Point 1</label>
+                        <textarea id="prod-bullet-1-input" rows="2"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Bullet Point 2</label>
+                        <textarea id="prod-bullet-2-input" rows="2"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label>Bullet Point 3</label>
+                        <textarea id="prod-bullet-3-input" rows="2"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Bullet Point 4</label>
+                        <textarea id="prod-bullet-4-input" rows="2"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width:100%;" onclick="applyProductCustomizations()">Save Product Page</button>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); margin: 25px 0 15px; padding-top: 15px;"></div>
                 <button class="btn btn-outline" style="width: 100%;" onclick="exportCleanHTML()">Export Clean HTML</button>
             </div>
         `;
@@ -350,6 +489,138 @@ function initAdminPortal() {
     }
 }
 
+function switchCustTab(tabId) {
+    document.querySelectorAll('.cust-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const clickedBtn = Array.from(document.querySelectorAll('.cust-tab-btn')).find(btn => btn.getAttribute('onclick').includes(tabId));
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    document.querySelectorAll('.cust-tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    const activeContent = document.getElementById(`tab-${tabId}`);
+    if (activeContent) activeContent.classList.add('active');
+}
+
+function populateCustomizerInputs() {
+    const customs = getCustomizations();
+
+    // Home Page Tab
+    document.getElementById('home-hero-subtitle-input').value = customs['hero-subtitle'] || 'Premium Fashion & Textiles';
+    document.getElementById('home-hero-title-input').value = customs['hero-title'] || 'Elevate Your Style with Funny Bunny';
+    document.getElementById('home-hero-desc-input').value = customs['hero-desc'] || 'Discover top-tier apparel designed for premium comfort. From seasonal collections to bespoke designer fabrics, we offer unparalleled craftsmanship for retailers and direct shoppers alike.';
+    document.getElementById('home-hero-bg-input').value = customs['hero-video-bg'] || 'assets/Untitled Design (1).webm';
+
+    document.getElementById('home-men-title-input').value = customs['men-cat-title'] || 'Men';
+    document.getElementById('home-men-desc-input').value = customs['men-cat-desc'] || 'Classic tailoring & rugged outdoor essentials';
+    document.getElementById('home-men-img-input').value = customs['men-cat-img'] || 'assets/smiling-family-togetherness-love-and-support-on-w-2026-01-06-00-29-16-utc.webp';
+
+    document.getElementById('home-women-title-input').value = customs['women-cat-title'] || 'Women';
+    document.getElementById('home-women-desc-input').value = customs['women-cat-desc'] || 'Chic seasonal designs & knitwear';
+    document.getElementById('home-women-img-input').value = customs['women-cat-img'] || 'assets/female-spring-clothing-glasses-and-flowers-on-blu-2026-01-09-08-04-11-utc.webp';
+
+    document.getElementById('home-kids-title-input').value = customs['kids-cat-title'] || 'Kids';
+    document.getElementById('home-kids-desc-input').value = customs['kids-cat-desc'] || 'Soft stretch cotton wardrobe bundles';
+    document.getElementById('home-kids-img-input').value = customs['kids-cat-img'] || 'assets/big-wardrobe-in-clothing-store-for-children-and-ad-2026-01-05-23-38-01-utc.webp';
+
+    // Store Page Tab
+    document.getElementById('shop-search-placeholder-input').value = customs['shop-search-placeholder'] || 'Search catalog...';
+
+    // Product Page Tab
+    loadProductCustFields();
+}
+
+function loadProductCustFields() {
+    const productId = document.getElementById('cust-product-select').value;
+    const customs = getCustomizations();
+    const product = PRODUCTS_DATABASE.find(p => p.id === productId) || {};
+
+    document.getElementById('prod-title-input').value = customs[`${productId}-title`] || product.title || '';
+    document.getElementById('prod-price-input').value = customs[`${productId}-price`] || (product.price ? product.price.toLocaleString('en-US') : '');
+    document.getElementById('prod-original-price-input').value = customs[`${productId}-original-price`] || (product.originalPrice ? product.originalPrice.toLocaleString('en-US') : '');
+    document.getElementById('prod-img-input').value = customs[`${productId}-img`] || product.image || '';
+    document.getElementById('prod-brand-input').value = customs[`${productId}-brand`] || 'Funny Bunny Apparel';
+    
+    document.getElementById('prod-bullet-1-input').value = customs[`${productId}-bullet-1`] || '100% Organic Egyptian Cotton: Sourced directly from local Giza farms to ensure long-staple durability.';
+    document.getElementById('prod-bullet-2-input').value = customs[`${productId}-bullet-2`] || 'Vibrant Floral Weave: Printed using non-toxic certified eco-friendly dyes that resist fading on repeated washing.';
+    document.getElementById('prod-bullet-3-input').value = customs[`${productId}-bullet-3`] || 'Relaxed Comfort Fit: Light weight fabric structure optimized for hot summer season climates.';
+    document.getElementById('prod-bullet-4-input').value = customs[`${productId}-bullet-4`] || 'Factory Authenticity: Stitched in-house by Funny Bunny Apparel Factory with double-reinforced borders.';
+}
+
+function applyHomeCustomizations() {
+    saveCustomization('hero-subtitle', document.getElementById('home-hero-subtitle-input').value);
+    saveCustomization('hero-title', document.getElementById('home-hero-title-input').value);
+    saveCustomization('hero-desc', document.getElementById('home-hero-desc-input').value);
+    saveCustomization('hero-video-bg', document.getElementById('home-hero-bg-input').value);
+
+    saveCustomization('men-cat-title', document.getElementById('home-men-title-input').value);
+    saveCustomization('men-cat-desc', document.getElementById('home-men-desc-input').value);
+    saveCustomization('men-cat-img', document.getElementById('home-men-img-input').value);
+
+    saveCustomization('women-cat-title', document.getElementById('home-women-title-input').value);
+    saveCustomization('women-cat-desc', document.getElementById('home-women-desc-input').value);
+    saveCustomization('women-cat-img', document.getElementById('home-women-img-input').value);
+
+    saveCustomization('kids-cat-title', document.getElementById('home-kids-title-input').value);
+    saveCustomization('kids-cat-desc', document.getElementById('home-kids-desc-input').value);
+    saveCustomization('kids-cat-img', document.getElementById('home-kids-img-input').value);
+
+    applyCustomizations();
+    showNotification("Home Page customizations applied!");
+}
+
+function applyShopCustomizations() {
+    saveCustomization('shop-search-placeholder', document.getElementById('shop-search-placeholder-input').value);
+    applyCustomizations();
+    showNotification("Store Page customizations applied!");
+}
+
+function applyProductCustomizations() {
+    const productId = document.getElementById('cust-product-select').value;
+    
+    saveCustomization(`${productId}-title`, document.getElementById('prod-title-input').value);
+    saveCustomization(`${productId}-price`, document.getElementById('prod-price-input').value);
+    saveCustomization(`${productId}-original-price`, document.getElementById('prod-original-price-input').value);
+    saveCustomization(`${productId}-img`, document.getElementById('prod-img-input').value);
+    saveCustomization(`${productId}-brand`, document.getElementById('prod-brand-input').value);
+    
+    saveCustomization(`${productId}-bullet-1`, document.getElementById('prod-bullet-1-input').value);
+    saveCustomization(`${productId}-bullet-2`, document.getElementById('prod-bullet-2-input').value);
+    saveCustomization(`${productId}-bullet-3`, document.getElementById('prod-bullet-3-input').value);
+    saveCustomization(`${productId}-bullet-4`, document.getElementById('prod-bullet-4-input').value);
+
+    // Sync in-memory database
+    const product = PRODUCTS_DATABASE.find(p => p.id === productId);
+    if (product) {
+        product.title = document.getElementById('prod-title-input').value;
+        const priceStr = document.getElementById('prod-price-input').value.replace(/,/g, '');
+        product.price = parseFloat(priceStr) || product.price;
+        const origPriceStr = document.getElementById('prod-original-price-input').value.replace(/,/g, '');
+        product.originalPrice = parseFloat(origPriceStr) || product.originalPrice;
+        product.image = document.getElementById('prod-img-input').value;
+    }
+
+    applyCustomizations();
+    showNotification("Product customizations applied!");
+}
+
+function syncDatabaseWithCustomizations() {
+    const customs = getCustomizations();
+    PRODUCTS_DATABASE.forEach(p => {
+        if (customs[`${p.id}-title`]) p.title = customs[`${p.id}-title`];
+        if (customs[`${p.id}-price`]) {
+            const priceStr = customs[`${p.id}-price`].replace(/,/g, '');
+            p.price = parseFloat(priceStr) || p.price;
+        }
+        if (customs[`${p.id}-original-price`]) {
+            const origPriceStr = customs[`${p.id}-original-price`].replace(/,/g, '');
+            p.originalPrice = parseFloat(origPriceStr) || p.originalPrice;
+        }
+        if (customs[`${p.id}-img`]) p.image = customs[`${p.id}-img`];
+    });
+}
+
 function openAdminLoginModal() {
     const modal = document.getElementById('admin-login-modal');
     if (modal) {
@@ -382,6 +653,7 @@ function handleAdminLogin() {
 function enableCustomizerMode() {
     document.body.classList.add('admin-mode');
     toggleCustomizerSidebar();
+    populateCustomizerInputs();
 
     document.querySelectorAll('[data-edit-key]').forEach(el => {
         el.classList.add('editable-highlight');
@@ -405,12 +677,16 @@ function handleEditableElementClick(e) {
 
     if (el.tagName === 'IMG' || el.tagName === 'VIDEO' || el.tagName === 'SOURCE') {
         val = el.src;
+    } else if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+        val = el.placeholder;
     } else {
         val = el.textContent.trim();
     }
 
     document.getElementById('cust-elem-key').value = key;
     document.getElementById('cust-elem-val').value = val;
+
+    switchCustTab('active-page');
 
     const panel = document.getElementById('customizer-sidebar');
     if (panel && !panel.classList.contains('active')) {
@@ -429,6 +705,7 @@ function applySelectedCustomization() {
 
     saveCustomization(key, val);
     applyCustomizations();
+    populateCustomizerInputs();
     showNotification("Customization applied successfully!");
 }
 
@@ -459,6 +736,8 @@ function exportCleanHTML() {
                 el.setAttribute('src', customs[key]);
             } else if (el.tagName === 'VIDEO' || el.tagName === 'SOURCE') {
                 el.setAttribute('src', customs[key]);
+            } else if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                el.setAttribute('placeholder', customs[key]);
             } else {
                 el.textContent = customs[key];
             }
@@ -523,6 +802,9 @@ document.addEventListener('DOMContentLoaded', () => {
             showNotification(`Theme switched to ${isLight ? 'Light' : 'Dark'} mode!`);
         });
     }
+
+    // Sync database with customizations before applying or rendering
+    syncDatabaseWithCustomizations();
 
     // Apply any customized content saved locally
     applyCustomizations();

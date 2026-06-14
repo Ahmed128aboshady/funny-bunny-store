@@ -2611,11 +2611,36 @@ footer {
     .amazon-buy-box {
         position: static;
     }
+    .cart-summary {
+        position: static !important;
+    }
 }
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-darker);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0 20px;
+        gap: 15px;
+        z-index: 1000;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s cubic-bezier(0.25, 1, 0.2, 1), opacity 0.3s ease, padding 0.4s ease;
+        pointer-events: none;
+    }
+    .nav-links.active {
+        max-height: 250px;
+        opacity: 1;
+        padding: 20px;
+        pointer-events: all;
     }
     .menu-toggle {
         display: block;
@@ -2640,20 +2665,6 @@ footer {
     .form-group.span-2 {
         grid-column: span 1;
     }
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--bg-darker);
-        border-bottom: 1px solid var(--border-color);
-        padding: 20px;
-        gap: 15px;
-        z-index: 1000;
-        align-items: center;
-    }
     .fabric-highlights {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -2664,6 +2675,41 @@ footer {
     .amazon-reviews-layout {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+    /* iOS Input Zoom Prevention */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+    /* Hide Swiper Navigation Arrows on mobile */
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important;
+    }
+    /* Frequently bought bundle flex alignment */
+    .amazon-bundle-flex {
+        justify-content: center;
+        gap: 15px;
+    }
+    .amazon-bundle-buybox {
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+    /* Shift left/right tooltips on mobile to stay within viewport */
+    .hotspot-dot[style*="left: 18%"] .hotspot-tooltip {
+        left: 80px;
+        transform: translateX(-20%) translateY(8px);
+    }
+    .hotspot-dot[style*="left: 18%"]:hover .hotspot-tooltip {
+        transform: translateX(-20%) translateY(0);
+    }
+    .hotspot-dot[style*="left: 72%"] .hotspot-tooltip {
+        left: -80px;
+        transform: translateX(-80%) translateY(8px);
+    }
+    .hotspot-dot[style*="left: 72%"]:hover .hotspot-tooltip {
+        transform: translateX(-80%) translateY(0);
     }
 }
 
@@ -3346,5 +3392,168 @@ body.light-mode .fabric-pane-content h3 {
         width: 240px;
         height: 300px;
     }
+}
+
+/* Mobile Table Cards (Cart Page) */
+@media (max-width: 600px) {
+    .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+        display: block;
+        width: 100%;
+    }
+    .cart-table thead {
+        display: none;
+    }
+    .cart-table tr {
+        position: relative;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .cart-product-cell {
+        margin-bottom: 15px;
+    }
+    .cart-table td {
+        padding: 8px 0;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+    }
+    .cart-table td:nth-child(2)::before {
+        content: 'Price:';
+        color: var(--text-muted);
+        font-weight: 600;
+    }
+    .cart-table td:nth-child(3)::before {
+        content: 'Quantity:';
+        color: var(--text-muted);
+        font-weight: 600;
+    }
+    .cart-table td:nth-child(4)::before {
+        content: 'Total:';
+        color: var(--text-muted);
+        font-weight: 600;
+    }
+    .cart-table td:nth-child(5) {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        width: auto;
+        padding: 0;
+    }
+    .cart-table td:nth-child(5)::before {
+        content: '';
+    }
+}
+
+/* Mobile Credit Card Mockup Scaling (Checkout Page) */
+@media (max-width: 360px) {
+    .card-wrapper {
+        width: 280px !important;
+        height: 166px !important;
+    }
+    .card-number-display {
+        font-size: 1.05rem !important;
+        letter-spacing: 1.5px !important;
+        margin: 10px 0 !important;
+    }
+    .card-front, .card-back {
+        padding: 15px !important;
+    }
+}
+
+/* Mobile Spacing & Heights (Home & Catalog & Products) */
+@media (max-width: 500px) {
+    .tilt-card {
+        height: 280px;
+    }
+    .tilt-card-overlay {
+        padding: 20px;
+    }
+    .tilt-card h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .amazon-main-display {
+        height: 280px;
+    }
+    .cart-summary, .cart-table-wrapper {
+        padding: 15px;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Admin Customizer Dashboard Upgrades */
+.customizer-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.cust-tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.cust-tab-btn:hover {
+    color: var(--primary);
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.cust-tab-btn.active {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.cust-tab-content {
+    display: none;
+}
+
+.cust-tab-content.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cust-tab-content h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    color: var(--primary);
+}
+
+.customizer-scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.customizer-scrollable::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.customizer-scrollable::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 3px;
+}
+
+.customizer-scrollable::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
 }
 

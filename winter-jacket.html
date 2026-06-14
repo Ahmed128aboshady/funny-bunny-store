@@ -61,15 +61,15 @@
                     </div>
                 </div>
                 <div class="amazon-main-display" id="main-media-display">
-                    <img id="main-image-el" src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Fleece Winter Trail Jacket">
+                    <img id="main-image-el" data-edit-key="winter-jacket-img" src="assets/winter-jacket-with-sunglasses-and-colorful-jewelry-2026-03-19-23-40-24-utc.webp" alt="Fleece Winter Trail Jacket">
                 </div>
             </div>
 
             <!-- Column 2: Product Information -->
             <div class="amazon-info-panel">
                 <div>
-                    <a href="shop.html" class="amazon-brand-link">Funny Bunny Apparel</a>
-                    <h1 class="amazon-title">Fleece Winter Trail Jacket</h1>
+                    <a href="shop.html" class="amazon-brand-link" data-edit-key="winter-jacket-brand">Funny Bunny Apparel</a>
+                    <h1 class="amazon-title" data-edit-key="winter-jacket-title">Fleece Winter Trail Jacket</h1>
                 </div>
 
                 <div class="amazon-rating-row">
@@ -86,10 +86,10 @@
                 <div class="amazon-price-row">
                     <span class="amazon-savings">Save 20% (Save 1,000 EGP)</span>
                     <div class="amazon-price-large">
-                        3,950 <span>EGP</span>
+                        <span data-edit-key="winter-jacket-price">3,950</span> <span>EGP</span>
                     </div>
                     <div class="amazon-original-price-row">
-                        List Price: <span>4,950 EGP</span>
+                        List Price: <span data-edit-key="winter-jacket-original-price">4,950</span> EGP
                     </div>
                 </div>
 
@@ -144,18 +144,18 @@
                 <!-- Bullet Points -->
                 <div class="amazon-about-section">
                     <h3 class="amazon-about-title">About this item</h3>
-                    <ul class="amazon-bullet-list">
-                        <li><strong>100% Organic Egyptian Cotton</strong>: Sourced directly from local Giza farms to ensure long-staple durability.</li>
-                        <li><strong>Vibrant Floral Weave</strong>: Printed using non-toxic certified eco-friendly dyes that resist fading on repeated washing.</li>
-                        <li><strong>Relaxed Comfort Fit</strong>: Light weight fabric structure optimized for hot summer season climates.</li>
-                        <li><strong>Factory Authenticity</strong>: Stitched in-house by Funny Bunny Apparel Factory with double-reinforced borders.</li>
+                                        <ul class="amazon-bullet-list">
+                        <li data-edit-key="winter-jacket-bullet-1"><strong>100% Organic Egyptian Cotton</strong>: Sourced directly from local Giza farms to ensure long-staple durability.</li>
+                        <li data-edit-key="winter-jacket-bullet-2"><strong>Vibrant Floral Weave</strong>: Printed using non-toxic certified eco-friendly dyes that resist fading on repeated washing.</li>
+                        <li data-edit-key="winter-jacket-bullet-3"><strong>Relaxed Comfort Fit</strong>: Light weight fabric structure optimized for hot summer season climates.</li>
+                        <li data-edit-key="winter-jacket-bullet-4"><strong>Factory Authenticity</strong>: Stitched in-house by Funny Bunny Apparel Factory with double-reinforced borders.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Column 3: Amazon Buy Box -->
             <div class="amazon-buy-box">
-                <div class="price">3,950 EGP</div>
+                <div class="price"><span data-edit-key="winter-jacket-price">3,950</span> EGP</div>
                 <div class="amazon-shipping-info">
                     <span>FREE Delivery</span> on orders over 3,000 EGP. Details.
                     <br>Arrives: <span>Tuesday, June 16</span>
@@ -362,7 +362,7 @@
                 `;
             } else {
                 container.innerHTML = `
-                    <img id="main-image-el" src="${path}" alt="Fleece Winter Trail Jacket">
+                    <img id="main-image-el" data-edit-key="winter-jacket-img" src="${path}" alt="Fleece Winter Trail Jacket">
                 `;
             }
         }
